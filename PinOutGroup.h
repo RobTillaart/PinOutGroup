@@ -35,6 +35,9 @@ public:
   // adds a single pin to the PinOutGroup, default to LOW.
   uint8_t   add(uint8_t pin, uint8_t value = LOW);
 
+  // returns count of pin in the group => only 0 or 1 makes sense
+  uint8_t   isInGroup(uint8_t pin);
+
   // set up to 16 pins "simultaneously" in one call.
   uint8_t   write(uint16_t value);
   

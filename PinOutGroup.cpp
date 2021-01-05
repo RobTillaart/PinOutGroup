@@ -64,6 +64,17 @@ uint8_t PinOutGroup::add(uint8_t pin, uint8_t value)
 }
 
 
+uint8_t PinOutGroup::isInGroup(uint8_t pin)
+{
+  uint8_t count = 0;
+  for (uint8_t i = 0; i < _size; i++)
+  {
+    if (_pins[i] == pin) count++;
+  }
+  return count;
+}
+
+
 uint8_t PinOutGroup::write(uint16_t value)
 {
   uint16_t changed = _lastValue ^ value;    // detect pins that changed
