@@ -54,13 +54,13 @@ unittest(test_all)
   fprintf(stderr, "VERSION: %s\n", PINOUTGROUP_LIB_VERSION);
 
   PinOutGroup POG;
-  uint8_t ar[4] = {2, 3, 4, 5, 6, 7};
+  uint8_t ar[46] = {2, 3, 4, 5, 6, 7};
   
   assertEqual(0, POG.size());
   assertEqual(16, POG.free());
   assertFalse(POG.isInGroup(2));
 
-  POG.add(6, ar, LOW):
+  POG.add(6, ar, LOW);
   assertEqual(6, POG.size());
   assertEqual(10, POG.free());
 }
