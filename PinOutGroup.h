@@ -1,7 +1,7 @@
 #pragma once
 //    FILE: PinOutGroup.h
 //  AUTHOR: Rob dot Tillaart at gmail dot com
-// VERSION: 0.1.3
+// VERSION: 0.1.4
 //    DATE: 2017-04-26
 // PURPOSE: PinOutGroup library for Arduino
 //     URL: https://github.com/RobTillaart/PinOutGroup
@@ -11,7 +11,7 @@
 #include "Arduino.h"
 
 
-#define PINOUTGROUP_LIB_VERSION      (F("0.1.3"))
+#define PINOUTGROUP_LIB_VERSION      (F("0.1.4"))
 
 
 // smaller MAXSIZE will reduce memory footprint with ditto bytes.
@@ -50,7 +50,7 @@ public:
   uint8_t   size() { return _size; };
 
   // check how many free "slots" there are...
-  uint8_t   free() { return PINOUTGROUP_MAXSIZE - _size; };
+  uint8_t   available() { return PINOUTGROUP_MAXSIZE - _size; };
 
 private:
   uint16_t  _lastValue = 0;
