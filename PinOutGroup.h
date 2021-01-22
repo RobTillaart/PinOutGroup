@@ -42,7 +42,7 @@ public:
   // write to a single pin while maintaining internal admin
   uint8_t   write(uint8_t idx, uint8_t value);
   void      allLOW();
-  void      allHIGH()
+  void      allHIGH();
 
   // retrieve the last set value
   uint16_t  read() { return _lastValue; };
