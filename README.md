@@ -37,14 +37,16 @@ so one can repopulate.
 - **write(idx, value)** sets a single pin of the internal array withindex 
 idx to value. This one is faster than writing to the whole group for a single
 change. The user must keep track of the right index nr.
+- **allLOW** sets all pins to LOW (this is not same as clear)
+- **allHIGH** sets all pins to HIGH
 - **read()** reads back the last written value to the pins as an unsigend int.
 - **size()** how many slots are used
-- **free()** how many slots are free
+- **available()** how many slots are available
+
 
 ## Future
 
 - give **clear(skip)** a bool flag to skip setting the pins to LOW ?
-- **allLOW()** and **allHIGH()**
 
 
 ## Operation

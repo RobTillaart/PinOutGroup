@@ -31,7 +31,6 @@ public:
   // adds a predefined array of pin numbers to the PinOutGroup
   // sets all to (LOW, HIGH)
   uint8_t   add(uint8_t sz, uint8_t* ar, uint8_t value = LOW);
-  
   // adds a single pin to the PinOutGroup, default to LOW.
   uint8_t   add(uint8_t pin, uint8_t value = LOW);
 
@@ -40,10 +39,11 @@ public:
 
   // set up to 16 pins "simultaneously" in one call.
   uint8_t   write(uint16_t value);
-  
   // write to a single pin while maintaining internal admin
   uint8_t   write(uint8_t idx, uint8_t value);
-  
+  void      allLOW();
+  void      allHIGH()
+
   // retrieve the last set value
   uint16_t  read() { return _lastValue; };
 
