@@ -26,26 +26,43 @@ the (relative) expensive **digitalWrite()** time is gained.
 Actual performance gains depends very much on the data written. 
 It is worth to do a small investigation for this. See e.g. 7 segment demo.
 
+**Note** that the pins are not set at the same microsecond.
+A small time is needed to go through all pins. 
+This is platform, group size  and pin state dependent.
+
+
 ## Interface
 
+### Constructor
+
 - **PinOutGroup()** Constructor
+
+### Administration
+
 - **clear()** resets all pins in the group to LOW and sets the size to zero
 so one can repopulate.
 - **add(size, pinArray, value)** adds a predefined array of pins to the group. Returns the number of pins added.
 - **add(pin, mode)** adds a single pin to the group. Returns the number of pins added (1 or 0). value can be LOW (=0) or HIGH (1 and other values).
+- **getPin(idx)** idx = 0..15; returns the pin at slot idx or 255 (0xFF) when out of range
+- **getIdx(pin)** returns the (first) index of the slot with pin number. 255 (0xFF) if not found.
+
+### Read / Write
+
 - **write(value)** writes a 16 bits unsigned int to max 16 pins.
 - **write(idx, value)** sets a single pin of the internal array withindex 
 idx to value. This one is faster than writing to the whole group for a single
 change. The user must keep track of the right index nr.
+- **allLOW** sets all pins to LOW (this is not same as clear)
+- **allHIGH** sets all pins to HIGH
 - **read()** reads back the last written value to the pins as an unsigend int.
 - **size()** how many slots are used
-- **free()** how many slots are free
+- **available()** how many slots are available
+
 
 ## Future
 
 - give **clear(skip)** a bool flag to skip setting the pins to LOW ?
-- **allLOW()** and **allHIGH()**
-
+- remove function? 
 
 ## Operation
 

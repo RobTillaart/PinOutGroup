@@ -32,12 +32,8 @@ PinOutGroup::PinOutGroup()
 void PinOutGroup::clear()
 {
   // safety: set all to LOW before cleaning up.
-  for (uint8_t i = 0; i < _size; i++)
-  {
-    digitalWrite(_pins[i], LOW);
-  }
+  allLOW();
   _size = 0;
-  _lastValue = 0;
 }
 
 
@@ -111,5 +107,45 @@ uint8_t PinOutGroup::write(uint8_t idx, uint8_t value)
 
   return 1;
 }
+
+
+void PinOutGroup::allLOW()
+{
+  for (uint8_t i = 0; i < _size; i++)
+  {
+    digitalWrite(_pins[i], LOW);
+  }
+  _lastValue = 0;
+}
+
+void PinOutGroup::allHIGH()
+{
+  uint16_t value = 0;
+  for (uint8_t i = 0; i < _size; i++)
+  {
+    digitalWrite(_pins[i], HIGH);
+    value = (1 << i);  // set flags.
+  }
+  _lastValue = value;
+}
+
+
+uint8_t PinOutGroup::getPin(uint8_t idx)
+{
+  if (idx >= _size) return 0xFF;
+  return _pins[idx];
+}
+
+
+uint8_t PinOutGroup::getIdx(uint8_t pin)
+{
+  for (uint8_t i = 0; i < _size; i++)
+  {
+    if (_pins[i] == pin) return i;
+  }
+  return 0xFF;
+}
+
+
 
 // --- END OF FILE ---

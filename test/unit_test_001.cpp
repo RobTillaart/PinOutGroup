@@ -53,12 +53,12 @@ unittest(test_all)
   uint8_t ar[46] = {2, 3, 4, 5, 6, 7};
   
   assertEqual(0, POG.size());
-  assertEqual(16, POG.free());
+  assertEqual(16, POG.available());
   assertFalse(POG.isInGroup(2));
 
   POG.add(6, ar, LOW);
   assertEqual(6, POG.size());
-  assertEqual(10, POG.free());
+  assertEqual(10, POG.available());
 }
 
 unittest_main()
