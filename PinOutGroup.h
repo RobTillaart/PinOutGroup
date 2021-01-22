@@ -52,6 +52,11 @@ public:
   // check how many free "slots" there are...
   uint8_t   available() { return PINOUTGROUP_MAXSIZE - _size; };
 
+  uint8_t   getPin(uint8_t idx);
+  uint8_t   getIdx(uint8_t pin);
+
+
+
 private:
   uint16_t  _lastValue = 0;
   uint8_t   _pins[PINOUTGROUP_MAXSIZE];

@@ -130,5 +130,22 @@ void PinOutGroup::allHIGH()
 }
 
 
+uint8_t PinOutGroup::getPin(uint8_t idx)
+{
+  if (idx >= _size) return 0xFF;
+  return _pins[idx];
+}
+
+
+uint8_t PinOutGroup::getIdx(uint8_t pin)
+{
+  for (uint8_t i = 0; i < _size; i++)
+  {
+    if (_pins[i] == pin) return i;
+  }
+  return 0xFF;
+}
+
+
 
 // --- END OF FILE ---
