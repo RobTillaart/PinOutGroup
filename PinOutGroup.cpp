@@ -118,6 +118,7 @@ void PinOutGroup::allLOW()
   _lastValue = 0;
 }
 
+
 void PinOutGroup::allHIGH()
 {
   uint16_t value = 0;
