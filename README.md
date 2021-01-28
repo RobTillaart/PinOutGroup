@@ -33,9 +33,11 @@ This is platform, group size  and pin state dependent.
 
 ## Interface
 
+
 ### Constructor
 
 - **PinOutGroup()** Constructor
+
 
 ### Administration
 
@@ -45,6 +47,10 @@ so one can repopulate.
 - **add(pin, mode)** adds a single pin to the group. Returns the number of pins added (1 or 0). value can be LOW (=0) or HIGH (1 and other values).
 - **getPin(idx)** idx = 0..15; returns the pin at slot idx or 255 (0xFF) when out of range
 - **getIdx(pin)** returns the (first) index of the slot with pin number. 255 (0xFF) if not found.
+- **isInGroup(pin)** returns how often a pin is added to a group. Can be more than once.
+- **size()** how many slots are used
+- **available()** how many slots are available
+
 
 ### Read / Write
 
@@ -55,8 +61,6 @@ change. The user must keep track of the right index nr.
 - **allLOW** sets all pins to LOW (this is not same as clear)
 - **allHIGH** sets all pins to HIGH
 - **read()** reads back the last written value to the pins as an unsigend int.
-- **size()** how many slots are used
-- **available()** how many slots are available
 
 
 ## Future
