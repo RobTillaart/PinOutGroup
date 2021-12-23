@@ -54,12 +54,14 @@ unittest(test_all)
   
   assertEqual(0, POG.size());
   assertEqual(16, POG.available());
-  assertEqual(16, getMaxSize());
+  assertEqual(16, POG.getMaxSize());
   assertFalse(POG.isInGroup(2));
 
   POG.add(6, ar, LOW);
   assertEqual(6, POG.size());
   assertEqual(10, POG.available());
+  assertEqual(16, POG.getMaxSize());
+  assertTrue(POG.isInGroup(2));
 }
 
 
