@@ -76,6 +76,7 @@ unittest(test_getPin)
 {
   PinOutGroup POG;
   uint8_t ar[16] = {2, 3, 4, 5, 6, 7};
+  POG.add(6, arr, LOW);
 
   assertEqual(0xFF, POG.getPin(0));  //  not in group
   assertEqual(0xFF, POG.getPin(1));
@@ -91,6 +92,7 @@ unittest(test_getIndex)
 {
   PinOutGroup POG;
   uint8_t ar[16] = {2, 3, 4, 5, 6, 7};
+  POG.add(6, arr, LOW);
 
   assertEqual(2,    POG.getIndex(0));
   assertEqual(3,    POG.getIndex(1));
