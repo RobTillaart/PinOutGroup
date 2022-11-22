@@ -77,13 +77,13 @@ unittest(test_getPin)
   PinOutGroup POG;
   uint8_t ar[16] = {2, 3, 4, 5, 6, 7};
 
-  assertEqual(2, POG.getPin(0));
-  assertEqual(3, POG.getPin(1));
-  assertEqual(4, POG.getPin(2));
-  assertEqual(5, POG.getPin(3));
-  assertEqual(6, POG.getPin(4));
-  assertEqual(7, POG.getPin(5));
-  assertEqual(0xFF, POG.getPin(6));  //  range error
+  assertEqual(0xFF, POG.getPin(0));  //  not in group
+  assertEqual(0xFF, POG.getPin(1));
+  assertEqual(0,    POG.getPin(2));
+  assertEqual(1,    POG.getPin(3));
+  assertEqual(2,    POG.getPin(4));
+  assertEqual(3,    POG.getPin(5));
+  assertEqual(4,    POG.getPin(6));  
 }
 
 
@@ -92,13 +92,13 @@ unittest(test_getIndex)
   PinOutGroup POG;
   uint8_t ar[16] = {2, 3, 4, 5, 6, 7};
 
-  assertEqual(0xFF, POG.getIndex(0));
-  assertEqual(0xFF, POG.getIndex(1));
-  assertEqual(0, POG.getIndex(2));
-  assertEqual(1, POG.getIndex(3));
-  assertEqual(2, POG.getIndex(4));
-  assertEqual(3, POG.getIndex(5));
-  assertEqual(4, POG.getIndex(6));
+  assertEqual(2,    POG.getIndex(0));
+  assertEqual(3,    POG.getIndex(1));
+  assertEqual(4,    POG.getIndex(2));
+  assertEqual(5,    POG.getIndex(3));
+  assertEqual(6,    POG.getIndex(4));
+  assertEqual(7,    POG.getIndex(5));
+  assertEqual(0xFF, POG.getIndex(6));
 }
 
 
